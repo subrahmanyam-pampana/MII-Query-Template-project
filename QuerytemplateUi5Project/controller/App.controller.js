@@ -39,6 +39,7 @@ sap.ui.define(
 
         this.BLSTransactions = {
           executeQueryPath: "<Query path>",
+          devTransactionPath:"<dev Transaction Path>"
         };
         this.webServices = {
           dataServersList:
@@ -143,7 +144,7 @@ sap.ui.define(
           dataServerView.fireSelectionChange();
         } else {
           $.ajax({
-            url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=Default/commons/QueryTemplate&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
+            url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=${that.BLSTransactions.devTransactionPath}&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
             method: "POST",
             data:{
               url:`${that.server.serverName}${that.webServices.dataServersList}&Content-Type=text/json&${that.credentialsString}`,
@@ -220,7 +221,7 @@ sap.ui.define(
           console.log("loading table data from server");
           try {
             $.ajax({
-              url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=Default/commons/QueryTemplate&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
+              url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=${that.BLSTransactions.devTransactionPath}&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
               method: "POST",
               data:{
                 url: `${that.server.serverName}/XMII/Illuminator?Server=${that.dataServer}&Mode=TableList&${that.credentialsString}&Content-Type=text/json`,
@@ -349,7 +350,7 @@ sap.ui.define(
           setColumnModel(oData);
         } else {
           $.ajax({
-            url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=Default/commons/QueryTemplate&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
+            url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=${that.BLSTransactions.devTransactionPath}&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
             method: "POST",
             data:{
               url: `${this.server.serverName}/XMII/Illuminator?Server=${that.dataServer}&Group=${tableName}&Mode=ColumnList&Content-Type=text/json&${this.credentialsString}`,
@@ -491,7 +492,7 @@ sap.ui.define(
         }
   
         $.ajax({
-          url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=Default/commons/QueryTemplate&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
+          url:`${that.serversList.servers[0].url}/XMII/Runner?Transaction=${that.BLSTransactions.devTransactionPath}&OutputParameter=*&Content-Type=text/json&${that.credentialsString}`,
           method: "POST",
           data: { 
             url: `${that.server.serverName}/XMII/Illuminator?QueryTemplate=${that.BLSTransactions.executeQueryPath}&Server=${that.dataServer}&RowCount=${rowCount}&Content-Type=text/json&${that.credentialsString}`,
