@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Transaction xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="15.4.1.7">
+    <TransactionAttributes>
+        <ContextItem>
+            <Name>Description</Name>
+            <Description>Transaction Description</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string"/>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>Comments</Name>
+            <Description>User Comments</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string"/>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>CreatedBy</Name>
+            <Description>Created By</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string">PAMPASU1</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>CreationDate</Name>
+            <Description>Creation Date</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="dateTime">2022-05-24T22:48:45</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>Category</Name>
+            <Description>Transaction Category</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string"/>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>Status</Name>
+            <Description>Deployment Status</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string">DEVELOPMENT</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>LegacyProcessingMode</Name>
+            <Description>Support the pre MII 12.1 Transaction Engine.</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="boolean">0</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>AutoAppendBlankNamespaces</Name>
+            <Description>AutoAppendBlankNamespaces</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="boolean">1</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>ThrowOnLinkError</Name>
+            <Description>Throws an exception when a link error occures</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="boolean">0</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>ThrowOnActionError</Name>
+            <Description>Throws an exception when an action error occurs</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="boolean">1</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>FormatXMLOnConversion</Name>
+            <Description>By default XML will be formatted when assigned from XML data type to String data type. This behaviour can be changed with this flag.</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="boolean">1</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>LastEditedBy</Name>
+            <Description>Last Edited By</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="xsd:string">PAMPASU1</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>LastEditedDate</Name>
+            <Description>Last Edited Date</Description>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="xsd:dateTime">2022-05-25T14:04:20</Value>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+    </TransactionAttributes>
+    <Name>Default/commons/QueryTemplate</Name>
+    <Version>26</Version>
+    <WriterRoles>SAP_XMII_Super_Administrator,SAP_XMII_Administrator,SAP_XMII_Developer</WriterRoles>
+    <Context>
+        <ContextItem>
+            <Name>data</Name>
+            <Description/>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string"/>
+            <ReadOnly>false</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>output</Name>
+            <Description/>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string"/>
+            <ReadOnly>true</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+        <ContextItem>
+            <Name>url</Name>
+            <Description/>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="string"/>
+            <ReadOnly>false</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+    </Context>
+    <Local/>
+    <Layout>
+        <GUILayoutItem>
+            <Name>Sequence</Name>
+            <X>8</X>
+            <Y>8</Y>
+            <Width>120</Width>
+            <SpacingWidth>120</SpacingWidth>
+            <DescendantWidth>0</DescendantWidth>
+            <Height>96</Height>
+        </GUILayoutItem>
+        <GUILayoutItem>
+            <Name>HTTP_Post_0</Name>
+            <X>16</X>
+            <Y>24</Y>
+            <Width>104</Width>
+            <SpacingWidth>0</SpacingWidth>
+            <DescendantWidth>0</DescendantWidth>
+            <Height>72</Height>
+        </GUILayoutItem>
+    </Layout>
+    <Actions>
+        <ContextItem>
+            <Name>HTTP_Post_0</Name>
+            <Description/>
+            <MinRange>0</MinRange>
+            <MaxRange>0</MaxRange>
+            <Value xsi:type="Post">
+                <URL/>
+                <ContentType>application/x-www-form-urlencoded</ContentType>
+                <Encoding>UTF-8</Encoding>
+                <Timeout>60</Timeout>
+                <ConnectTimeout>60</ConnectTimeout>
+                <CredentialAlias/>
+                <UserName/>
+                <UserPassword/>
+                <PostData/>
+                <RequestProperties/>
+                <KeystoreName/>
+                <CertificateName/>
+                <UseDestinationService>false</UseDestinationService>
+                <HTTPDestination/>
+                <isPiPost>false</isPiPost>
+                <ConvertToXML>true</ConvertToXML>
+                <AutoEncode>true</AutoEncode>
+                <Cookies/>
+                <AuthenticationType>Basic Authentication</AuthenticationType>
+                <OauthUrl/>
+                <DaysRetention>7</DaysRetention>
+                <MaxRetryCount>5</MaxRetryCount>
+                <RetryInterval>30000</RetryInterval>
+                <ProcessingMode>0</ProcessingMode>
+                <Filter/>
+                <DataBufferComment/>
+                <RetryImmediately>false</RetryImmediately>
+            </Value>
+            <ReadOnly>false</ReadOnly>
+            <AlertXMLAssigned>false</AlertXMLAssigned>
+        </ContextItem>
+    </Actions>
+    <ReaderRoles>SAP_XMII_Super_Administrator,SAP_XMII_Administrator,SAP_XMII_Developer,SAP_XMII_User</ReaderRoles>
+    <Steps>
+        <Step xsi:type="ActionSequence">
+            <Name>Sequence</Name>
+            <Description/>
+            <Steps/>
+            <Actions>
+                <Action>
+                    <Name>HTTP_Post_0</Name>
+                    <Description></Description>
+                    <Expiration/>
+                    <IncomingLinks>
+                        <Assign xsi:type="Assign">
+                            <Name/>
+                            <Description/>
+                            <To>HTTP_Post_0.URL</To>
+                            <From>Transaction.url</From>
+                        </Assign>
+                        <Assign xsi:type="Assign">
+                            <Name/>
+                            <Description/>
+                            <To>HTTP_Post_0.PostData</To>
+                            <From>"Param.1="&amp;Transaction.data</From>
+                        </Assign>
+                    </IncomingLinks>
+                    <OutgoingLinks>
+                        <Assign xsi:type="Assign">
+                            <Name/>
+                            <Description/>
+                            <To>Transaction.output</To>
+                            <From>HTTP_Post_0.ReturnAsString</From>
+                        </Assign>
+                    </OutgoingLinks>
+                </Action>
+            </Actions>
+        </Step>
+    </Steps>
+</Transaction>

@@ -1,0 +1,96 @@
+<mvc:View
+    controllerName = "app.controller.App"
+	xmlns="sap.m"
+    xmlns:ui = "sap.ui.table"
+    xmlns:core = "sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc">
+	<!-- <Text text = "{/tables/name}"/> -->
+	<!-- <Button press=".showCellDetails" text="fire"/>
+      -->
+	<VBox>
+		<Panel headerText="Query Template">
+
+			<HBox >
+				<VBox width="15%">
+					<ScrollContainer class="sapUiSmallMarginBeginEnd" height="200px" width="90%" vertical="true" focusable="true">
+						<SelectList id="idServersList" items="{/servers}"
+									selectionChange = ".setServerName"
+									width = "90%">
+							<core:Item key="{url}" text ="{name}"/>
+						</SelectList>
+					</ScrollContainer>
+				</VBox>
+
+				<VBox width="25%">
+					<SearchField class="sapUiSmallMarginBeginEnd" width = "90%" liveChange=".onDataServerSearch" placeholder="Search Data servers"/>
+					<ScrollContainer class="sapUiSmallMarginBeginEnd" height="200px" width="90%" vertical="true" focusable="true">
+						<SelectList id="idDataServers" items="{/Rowsets/Rowset/0/Row}"
+									selectionChange = ".setDataServer"
+									width = "100%">
+							<core:Item key="{Name}" text ="{Name}"/>
+						</SelectList>
+					</ScrollContainer>
+				</VBox>
+				<VBox width="25%">
+					<SearchField liveChange=".onTableSearch" placeholder="Search Tables" width="90%" />
+					<ScrollContainer height="200px" width="90%" vertical="true" focusable="true">
+						<SelectList id="idTableList" items="{/Row}"
+										selectionChange = ".onTableSelect"
+										width = "100%">
+							<core:Item key="{TableName}" text ="{TableName}"/>
+						</SelectList>
+					</ScrollContainer>
+				</VBox>
+
+				<VBox width="25%">
+					<SearchField liveChange=".onColumnSearch" placeholder="Search Columns" width="90%" />
+					<ScrollContainer height="200px"  width="90%" vertical="true" focusable="true">
+						<List id="idColumnList" items="{columnModel>/Row}"
+									mode = "MultiSelect"
+									width = "100%">
+							<items>
+								<StandardListItem title="{columnModel>ColumnName}"/>
+							</items>
+						</List>
+					</ScrollContainer>
+				</VBox>
+			</HBox>
+		</Panel>
+	</VBox>
+
+	<HBox width = "100%" class="sapUiSmallMargin">
+		<Button press=".pasteSelectedTable" class="sapUiSmallMarginEnd" text="Paste Table"/>
+		<Button press=".pasteSelectedColumns" class="sapUiSmallMarginEnd" text="Paste columns"/>
+		<Button press=".pasteSelectedQueries" class="sapUiSmallMarginEnd" text="Paste query"/>
+		<Button press=".saveQueryLocally" class="sapUiSmallMarginEnd" text="Save Locally"/>
+		<Button press=".executeQuery" class="sapUiSmallMarginEnd" text="Execute"/>
+	</HBox>
+
+	<VBox>
+		<HBox>
+			<Input id ="idQueryName" width = "90%" class="sapUiSmallMarginBegin" placeholder ="Query Name"/>
+			<Input id ="idRowCount" width = "70%" class="sapUiSmallMarginBegin" value="100" placeholder ="Row Count"/>
+		</HBox>
+
+		<HBox width = "100%">
+			<TextArea id = "idQueryTextArea" class="sapUiSmallMargin" placeholder ="Write the Query..." width="800px" height="260px"/>
+			<VBox width = "30%">
+				<SearchField liveChange=".onSavedQuerySearch" placeholder="Search Saved Queries" class="sapUiSmallMarginBeginEnd" width="90%" />
+				<ScrollContainer height="220px" class="sapUiSmallMarginBeginEnd" vertical="true" focusable="true">
+					<List id="idSavedQuriesList" items="{/queries}"
+					mode = "SingleSelectLeft" delete="deleteSavedQuery"
+					width = "100%">
+						<items>
+							<StandardListItem title="{name}" description="{query}"/>
+						</items>
+					</List>
+				</ScrollContainer>
+			</VBox>
+		</HBox>
+	</VBox>
+	<ui:Table id="idDisplayTable" visibleRowCount="10" 
+				cellClick = ".showCellDetails" ariaLabelledBy="title">
+	</ui:Table>
+</mvc:View>
