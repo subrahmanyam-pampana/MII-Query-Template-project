@@ -41,5 +41,7 @@ this.BLSTransactions = {
 *Note:* Mainatain same executeQuery in all the servers with same path
 devTransactionPath only need to be maintained in dev server
 
-5.Deploy the MII Qurery to all the servers in the same path. find this Query in the folder 
+5.Deploy the MII Qurery(testQry.tqsq) to all the MII workbenches in the same path. find this Query in the folder [MII-Query-Template-project/QuerytemplateUi5Project/MII queries/testQry.tqsq](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/tree/main/QuerytemplateUi5Project/MII%20queries)
+
+6.Deploy the BLS Transaction(QueryTemplate.trx) to only dev MII work bench from the folder [MII-Query-Template-project/QuerytemplateUi5Project/MII queries/QueryTemplate.trx](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/QuerytemplateUi5Project/MII%20queries/QueryTemplate.trx)
 
