@@ -41,6 +41,5 @@ this.BLSTransactions = {
 *Note:* Mainatain same executeQuery in all the servers with same path
 devTransactionPath only need to be maintained in dev server
 
-
-5.
+5.Deploy the MII Qurery to all the servers in the same path. find this Query in the folder 
 
