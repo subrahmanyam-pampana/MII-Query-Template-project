@@ -1,8 +1,0 @@
-{
-    "data": [
-      { "name": "SELECT", "code": "AF" },
-      { "name": "FROM", "code": "AX" },
-      { "name": "WHERE", "code": "AL" },
-      { "name": "DESC", "code": "DZ" },
-      { "name": "LIKE", "code": "AS" }]
-    }
