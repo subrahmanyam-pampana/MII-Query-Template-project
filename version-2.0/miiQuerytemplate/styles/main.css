@@ -1,0 +1,11 @@
+
+.sqlTextArea div{
+    min-height: 240px !important;
+}
+
+.mdoTextArea div{
+    min-height: 200px !important;
+}
+.saveCodeContainer{
+    margin-top: 10px;
+}

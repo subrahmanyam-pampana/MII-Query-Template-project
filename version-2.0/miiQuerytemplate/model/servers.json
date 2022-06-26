@@ -1,0 +1,6 @@
+{
+    "servers": [
+      { "name": "<server1 Alias>", "url": "<your server url>" },
+      { "name": "<server2 Alias>", "url": "<your server url>" }
+    ]
+  }
