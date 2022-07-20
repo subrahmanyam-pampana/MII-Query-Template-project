@@ -1,0 +1,13 @@
+{
+    "ws": {
+        "projectList": "/XMII/Catalog?Mode=ListFolders"
+    },
+    "transactions": {
+        "MDOTransaction": "<MDOQueryTemplate path>",
+        "getFileListTransaction":"<getMdoList path>",
+        "getMDOList":"<getMdoList path>"
+    },
+    "queries": {
+        "mdoQry":"<Mdoquery path>"
+    }
+}

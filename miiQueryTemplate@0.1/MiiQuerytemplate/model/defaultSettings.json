@@ -1,0 +1,10 @@
+{  
+  "defaultDataServer": "MII_APP",
+    "restrictedQueries": [
+        "delete",
+        "insert",
+        "update",
+        "drop",
+        "alter"
+      ]
+}

@@ -1,0 +1,175 @@
+<mvc:View
+    controllerName = "app.controller.sqltemplate"
+	xmlns="sap.m"
+    xmlns:ui = "sap.ui.table"
+    xmlns:core = "sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<VBox>
+		<Panel>
+			<HBox >
+				<VBox width="15%">
+					<ScrollContainer class="sapUiSmallMarginBeginEnd" height="200px" width="90%" vertical="true" focusable="true">
+						<SelectList id="idServersList" items="{path:'/servers',templateShareable: false}"
+									selectionChange = ".setServerName"
+									width = "90%">
+							<core:Item key="{url}" text ="{name}"/>
+						</SelectList>
+					</ScrollContainer>
+				</VBox>
+
+				<VBox width="25%">
+					<SearchField id="idDataServersSearch" class="sapUiSmallMarginBeginEnd" width = "90%" liveChange=".onDataServerSearch" placeholder="Search Data servers"/>
+					<ScrollContainer class="sapUiSmallMarginBeginEnd" height="200px" width="90%" vertical="true" focusable="true">
+						<SelectList id="idDataServers" items="{path:'/Rowsets/Rowset/0/Row',templateShareable: false}"
+									selectionChange = ".setDataServer"
+									width = "100%">
+							<core:Item key="{Name}" text ="{Name}"/>
+
+						</SelectList>
+					</ScrollContainer>
+				</VBox>
+				<VBox width="25%">
+					<SearchField id="idTableSearch" liveChange=".onTableSearch" placeholder="Search Tables" width="90%" />
+					<ScrollContainer height="200px" width="90%" vertical="true" focusable="true">
+						<List id="idTableList" mode="SingleSelectMaster" items="{path:'/Row',templateShareable: false}"
+										selectionChange = ".onTableSelect"
+										width = "100%">
+					                  
+					           	<items>
+								<StandardListItem title="{TableName}"/>
+							</items>
+							<dragDropConfig>
+								<dnd:DragInfo groupName="tableList" sourceAggregation="items"/>
+							</dragDropConfig>
+						</List>
+					</ScrollContainer>
+				</VBox>
+
+				<VBox width="25%">
+					<SearchField liveChange=".onColumnSearch" placeholder="Search Columns" width="90%" />
+					<ScrollContainer height="200px" width="90%" vertical="true" focusable="true">
+						<List id="idColumnList" items="{path:'columnModel>/Row',templateShareable: false}"
+									mode = "MultiSelect"
+									width = "100%">
+							<items>
+								<StandardListItem title="{columnModel>ColumnName}"/>
+							</items>
+							<dragDropConfig>
+								<dnd:DragInfo groupName="columnsList" sourceAggregation="items"/>
+							</dragDropConfig>
+						</List>
+					</ScrollContainer>
+				</VBox>
+			</HBox>
+		</Panel>
+	</VBox>
+
+	<HBox width = "100%" class="sapUiSmallMargin">
+		<Button press=".pasteSelectedTable" class="sapUiSmallMarginEnd" text="Paste Table"/>
+		<Button press=".pasteSelectedColumns" class="sapUiSmallMarginEnd" text="Paste columns"/>
+		<Button press=".pasteSelectedQueries" class="sapUiSmallMarginEnd" text="Paste query"/>
+		<Button press=".saveQueryLocally" class="sapUiSmallMarginEnd" text="Save Locally"/>
+		<Button press=".executeQuery" class="sapUiSmallMarginEnd" tooltip="Ctrl+Enter" text="Execute"/>
+	</HBox>
+
+	<VBox>
+		<HBox>
+			<Input id ="idQueryName" width = "90%" class="sapUiSmallMarginBegin" placeholder ="Query Name"/>
+			<Input id ="idRowCount" width = "70%" class="sapUiSmallMarginBegin" value="20" placeholder ="Row Count"/>
+		</HBox>
+		<l:Splitter class="sapUiNoMarginTop" height="305px" width="100%">
+			<HBox width = "100%">
+				<TextArea id = "idQueryTextArea" growing="true" class="sapUiSmallMargin sqlTextArea" placeholder ="Write your Query..." width="745px">
+					<dragDropConfig>
+						<dnd:DropInfo groupName="savedQuery" drop=".onSavedQueryDrop"/>
+					</dragDropConfig>
+					<dragDropConfig>
+						<dnd:DropInfo groupName="columnsList" drop=".onColumnsDrop"/>
+					</dragDropConfig>
+					<dragDropConfig>
+						<dnd:DropInfo groupName="tableList" drop=".onTableDrop"/>
+					</dragDropConfig>
+				<dragDropConfig>
+					<dnd:DropInfo groupName="parameterList" drop=".onParameterDrop"/>
+				</dragDropConfig>
+				</TextArea>
+				<VBox width = "30%" class="saveCodeContainer">
+					<SearchField liveChange=".onSavedQuerySearch" placeholder="Search Saved Queries" class="sapUiSmallMarginBeginEnd" width="90%" />
+					<ScrollContainer height="220px" class="sapUiSmallMarginBeginEnd" vertical="true" focusable="true">
+						<List id="idSavedQuriesList" items="{path:'/queries',templateShareable: false}"
+					mode = "SingleSelectLeft" delete="deleteSavedQuery"
+					width = "100%">
+							<items>
+								<StandardListItem title="{name}" description="{query}"/>
+							</items>
+							<dragDropConfig >
+								<dnd:DragInfo groupName="savedQuery" sourceAggregation="items"/>
+							</dragDropConfig>
+						</List>
+					</ScrollContainer>
+				</VBox>
+			</HBox>
+			<ui:Table id="idParametersTable" rows="{/}" selectionMode="Single">
+				<ui:columns>
+					<ui:Column width="7rem">
+						<Label text="Parameter" />
+						<ui:template>
+							<Text text="{parameter}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Value" />
+						<ui:template>
+							<Input value="{value}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Description" />
+						<ui:template>
+							<Input />
+						</ui:template>
+					</ui:Column>
+				</ui:columns>
+				<ui:layoutData>
+					<l:SplitterLayoutData size="0%" />
+				</ui:layoutData>
+				<ui:dragDropConfig>
+					<dnd:DragInfo groupName="parameterList" sourceAggregation="rows" />
+				</ui:dragDropConfig>
+			</ui:Table>
+		</l:Splitter>
+	</VBox>
+
+	<VBox id="tablesVbox" items="{/Rowsets/Rowset}">
+		<items>
+			<ui:Table columns="{path:'Columns/Column',factory:'.tableFactoryFunction'}" visibleRowCount="5" visibleRowCountMode="Interactive" rows="{Row}"
+				cellClick = ".showCellDetails" ariaLabelledBy="title">
+				<ui:toolbar>
+					<OverflowToolbar>
+						<content>
+							<Label text="Number of Rows: "/>
+							<Label text="{path:'Row',formatter: '.getNumOfRows'}"/>
+							<ToolbarSpacer/>
+							<Label text="Visible Rows:"/>
+							<Select change=".setVisibleRowCount">
+								<core:Item text="5" />
+								<core:Item text="10" />
+								<core:Item text="20" />
+								<core:Item text="50" />
+								<core:Item text="100" />
+								<core:Item text="200" />
+								<core:Item text="500" />
+							</Select>
+							<Button icon="sap-icon://excel-attachment" press=".exportToExcel" text="Export"/>
+						</content>
+					</OverflowToolbar>
+				</ui:toolbar>
+			</ui:Table>
+		</items>
+
+	</VBox>
+</mvc:View>

@@ -1,0 +1,4 @@
+{
+    "executeQueryPath": "<sqlQuery path>",
+    "executeTransactionPath":"<QueryTemplate path>"
+}

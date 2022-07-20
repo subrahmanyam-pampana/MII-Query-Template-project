@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover id="myPopover" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" placement="Bottom" initialFocus="email">
+		
+		<Panel headerText="Keyboard Shortcuts">
+			<VBox>
+				<Text class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" text="CTRL + Enter to Execute the Query"/>
+				<Text class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" text="CTRL + Space to get the Table or Column suggestions"/>
+			</VBox>
+		</Panel>
+		<Panel headerText="Documentation">
+			<VBox>
+				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Application documentation" href="https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/README.md"/>
+				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Report issue" href="https://github.com/subrahmanyam-pampana/MII-Query-Template-project/issues"/>
+				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Application setup guide" href="https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/README.md"/>
+
+			</VBox>
+		</Panel>
+
+	</Popover>
+</core:FragmentDefinition>

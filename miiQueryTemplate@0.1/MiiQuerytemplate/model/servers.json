@@ -1,0 +1,7 @@
+{
+    "servers": [
+       { "name": "Devserver", "url": "your server url" },
+       { "name": "Quality server", "url": "https://myserver.net:5211" }
+
+    ]
+  }
