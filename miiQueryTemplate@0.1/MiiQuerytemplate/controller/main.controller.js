@@ -1,8 +1,10 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/json/JSONModel",
 	"sap/ui/core/Fragment",
-], function(Controller,JSONModel,Fragment) {
+	"app/utils/util"
+
+], function(Controller,JSONModel,Fragment,utiljs) {
     'use strict';
     return Controller.extend("app.controller.main",{
         onInit:function(){
@@ -12,7 +14,8 @@ sap.ui.define([
         onItemSelect: function (oEvent) {
 			var oItem = oEvent.getParameter("item");
 			this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
-		},
+		}
+,
    		onInfoButtonPress:function(oEvent){
 			var oButton = oEvent.getSource(),
 				oView = this.getView();
@@ -26,7 +29,9 @@ sap.ui.define([
 					controller: this
 				}).then(function(oPopover) {
 					oView.addDependent(oPopover);
-					//oPopover.bindElement("/ProductCollection/0");
+					var oDocData = loadLocalResource("./model/documentation.json")
+					var docModel = new JSONModel(oDocData)
+					oPopover.setModel(docModel)
 					return oPopover;
 				});
 			}
