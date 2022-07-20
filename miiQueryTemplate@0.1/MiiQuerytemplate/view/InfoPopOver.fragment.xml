@@ -10,9 +10,9 @@
 		</Panel>
 		<Panel headerText="Documentation">
 			<VBox>
-				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Application documentation" href="https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/README.md"/>
+				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Application documentation" href="{/documentation}"/>
 				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Report issue" href="https://github.com/subrahmanyam-pampana/MII-Query-Template-project/issues"/>
-				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Application setup guide" href="https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/README.md"/>
+				<Link class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom" target="_blank" text="Application setup guide" href="{/projectSetupGuide}"/>
 
 			</VBox>
 		</Panel>
