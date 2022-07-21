@@ -1,51 +1,31 @@
-# MII-Query-Template-project
-Web based Query template used to Query the MII data sources
+# SAP MII Web Query Template
+Web Query template application is used to Query the SAP MII data sources right from the Browser. 
+**Use case 01**
+Some times developers need to write completex queries in order to to meet the requirements, as a part of it we usually want to execute  the part of the query by selecting to check the data but this is not possible directly from MII Workbench Query template. This application helps you to write complex queries and it also gives auto suggestions while typing the Quries.
 
-## Project Set up
-### deploying
-1. Download the Project or clone the project
-2. Deploy the App in the MII workbench in web folder
-3. Deploy the MII Qurery(testQry.tqsq) to all the MII workbenches in the same path. find this Query in the folder [MII-Query-Template-project/QuerytemplateUi5Project/MII queries/testQry.tqsq](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/tree/main/QuerytemplateUi5Project/MII%20queries)
-4. Deploy the BLS Transaction(QueryTemplate.trx) to only dev MII work bench from the folder [MII-Query-Template-project/QuerytemplateUi5Project/MII queries/QueryTemplate.trx](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/QuerytemplateUi5Project/MII%20queries/QueryTemplate.trx)
+**Use case 02**
+During the Monitoring the Application if any issue occurs, Operations people generally wants to check weather data is available in the data base or not to analyze the issue. Analysizing the data dirctly from the MII Queries is bit dificult. So this application helps to filtering, sorting and seracrching the data after retrieving from the data base. 
 
-### Configuration
-1. Go to [QuerytemplateUi5Project/controller/App.controller.js](QuerytemplateUi5Project/controller/App.controller.js) file and add your server configurations as shown in the image below
+## Versions
+|  version | description  | source code link   | Project Setup document |
+| ------------ | ------------ | ------------- | -------------- |
+| initial version  |  It has only limited features. don't supports the MDO Queries |[link](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/tree/main/QuerytemplateUi5Project "link")| [View](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/45ca204532226fa0d876e2869727f24b1a99a45b/QuerytemplateUi5Project/proect%20setup%20guide.md)|
+|   version 0.1|  this is the latest version. we recomends this |[link](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/tree/main/miiQueryTemplate%400.1 "link")| [Download](https://github.com/subrahmanyam-pampana/MII-Query-Template-project/blob/main/miiQueryTemplate%400.1/setupGuide.docx)
 
-![image](https://user-images.githubusercontent.com/79074273/170458381-64921d03-52bd-4a2f-9402-9bcf14e6ad35.png)
+## Featurs
+1. `Auto Suggestions` While Writing the Queries in the Query text area you will get Auto suggestion of tables/ colums.
+   After every `from `  key word you will get Available tables suggestions.
+   After every `space` key you will get Column suggestions of selected table.
+2. `Drag and Drop` all the required lists enabled with drag and drop feature. we can drag required items and drop to Query text area.
+3. `Export to Excel` we can export the retrievd data to Excel file by clicking `Export` button
+4. `XML formating` we can format the xml by click on format button in data popup dialog.
+5. `Paramters support` while wring the Query use [Param.1] ....[Param.15] to dynamically assign values. assign values in the parameter table.
+6. `Saving Queries in the Browser` you can save the Queries in the Browser local storage. these Quries persists until you clear local stoarage.
+7. `MDO Query support` We can query the Available MDO's from MDO Query template tab.
+8. `Multi server Support`, with simple configuration we can the query the data bases of multiple servers using single application.
 
-Example:
-```js
- this.serversList = {
-          servers: [
-            { name: "my development server", url: "https://myDevserver:50010" },
-            { name: "my Quality server", url: "https://myQaserver:50010" }
-          ],
-        };
-
-```
-2.set up the default server in the same file at below shown image
-
-![image](https://user-images.githubusercontent.com/79074273/170459288-98cb450b-53a5-4149-8392-862af31480e1.png)
-
-example:
-```js
-this.server = {
-          serverName: that.serversList.servers[0].url,  //here first server selected as default server
-          Alias: "my dev server", //specify the custom name for your server that will apear in the ui or set it as  that.serversList.servers[0].name
-        };
-```
-3.Configure the BLS Query path to execute the Query at below part in the code
-
-![image](https://user-images.githubusercontent.com/79074273/170461398-ab14c35d-74bb-4543-ae7b-d7b425f5870d.png)
-example:
-```js
-this.BLSTransactions = {
-          executeQueryPath: "DefaultProject/myQuery", //put your Query path here
-          devTransactionPath:"devProject/queryExecuteTrx"
-        };
-```
-*Note:* Mainatain same executeQuery in all the servers with same path and 
-devTransaction only need to be maintained in dev server
-
-
+## Prerequasites
+1. User must have access to SAP MII application
+2. User must have required roles to query the data base.
+3. Single signon should be enabled for multi server access.
 
