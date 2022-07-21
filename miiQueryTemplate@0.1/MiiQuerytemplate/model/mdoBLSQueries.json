@@ -4,7 +4,7 @@
     },
     "transactions": {
         "MDOTransaction": "<MDOQueryTemplate path>",
-        "getFileListTransaction":"<getMdoList path>",
+        "getFileListTransaction":"<ReadFileList path>",
         "getMDOList":"<getMdoList path>"
     },
     "queries": {
