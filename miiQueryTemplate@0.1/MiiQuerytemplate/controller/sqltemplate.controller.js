@@ -31,7 +31,6 @@ sap.ui.define(
     var EdmType = exportLibrary.EdmType
     return Controller.extend("app.controller.sqltemplate", {
       onInit: function () {
-MessageToast.show("this is working")
         /*--------------------global properties------------------------------------------------*/
         var that = this
         this.serversList = this.loadResource("./model/servers.json")
