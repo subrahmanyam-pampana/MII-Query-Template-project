@@ -22,7 +22,8 @@ sap.ui.define(
     Dialog,
     MessageBox,
     utiljs,
-    uiTableUtil,
+    uiTableUtil
+,
    parameterlogic
   ) {
     "use strict";
@@ -54,7 +55,8 @@ sap.ui.define(
         };
 
         oviews.serverView.setModel(new JSONModel(serversList));
-       //enabling parameters
+       
+//enabling parameters
         var parameterData = loadLocalResource("./model/parameterData.json");
         oviews.parameterTable.setModel(new JSONModel(parameterData));
       },
@@ -119,6 +121,9 @@ sap.ui.define(
             },
 
             success: function (oData) {
+	       if(!Array.isArray(oData.folders.folder)){
+			oData.folders.folder = [oData.folders.folder]
+	       }
               oviews.mdoView.setModel(new JSONModel(oData.folders.folder),"mdoModel");
               oviews.mdoView.setBusy(false);
             },
